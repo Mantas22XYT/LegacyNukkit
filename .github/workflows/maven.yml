@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Compile LegacyNukkit jar
 
 on:
   push:
@@ -34,6 +34,7 @@ jobs:
     - name: Upload build
       uses: actions/upload-artifact@v4
       with:
-        name: dist-without-markdown
+        name: LegacyNukkit.jar
         path: |
           target/*.jar
+          !target/original-*.jar
