@@ -31,3 +31,9 @@ jobs:
       run: mvn install:install-file -Dfile=lib/leveldb.jar -DgroupId=com.tinfoiled.mcpe.leveldb -DartifactId=leveldb -Dversion=0.8 -Dpackaging=jar
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Upload build
+      uses: actions/upload-artifact@v4
+      with:
+        name: dist-without-markdown
+        path: |
+          target/*.jar
